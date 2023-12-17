@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Check if tappedImage is a valid index
-        if (tappedImage >= 0 && tappedImage < gameState.length && gameState[tappedImage] == 2) {
+        if (gameState[tappedImage] == 2) {
             gameState[tappedImage] = activePlayer;
             img.setTranslationY(-1000f);
 
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Update Status Bar for winner announcement
     private void updateStatus(String message) {
         TextView status = findViewById(R.id.Status);
         status.setText(message);
