@@ -56,9 +56,25 @@ public class MainActivity extends AppCompatActivity {
                     String winner = (gameState[winPosition[0]] == 0) ? "X has won" : "O has won";
                     updateStatus(winner);
                     gameActive = false;
+                    return; // Exit the method if someone has won
                 }
             }
+            // Check for a draw
+            if (isDraw()) {
+                updateStatus("It's a draw!");
+                gameActive = false;
+            }
         }
+    }
+
+    private boolean isDraw() {
+        for (int state : gameState) {
+            if (state == 2) {
+                // There is an empty space, so the game is not a draw
+                return false;
+            }
+        }
+        return true;
     }
 
     // Update Status Bar for winner announcement
