@@ -7,9 +7,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+//    Player Representation
+//    0 - X
+//    1 - O
     Boolean gameActive = true;
     int activePlayer = 0;
     int[] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};
+//    State Meaning
+//    0 - X
+//    1 - O
+//    2 - Null
     int[][] winPositions = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8},
             {0, 3, 6}, {1, 4, 7}, {2, 5, 8},
             {0, 4, 8}, {2, 4, 6}};
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         activePlayer = 0;
 
         for (int i = 0; i < gameState.length; i++) {
-            gameState[i] = 2;
+            gameState[i] = 2; // Resetting all box to Null
         }
 
         // Reset ImageView resources
@@ -78,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.imageView7)).setImageResource(0);
         ((ImageView) findViewById(R.id.imageView8)).setImageResource(0);
 
+        // Resetting the Status Box
         TextView status = findViewById(R.id.Status);
         status.setText("Tap to Play");
     }
